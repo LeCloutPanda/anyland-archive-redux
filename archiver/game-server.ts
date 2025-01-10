@@ -42,7 +42,9 @@ console.log("building area index...")
 for (let i = 0; i <= files.length; i++) {
     const filename = files[i];
 
-    const file = Bun.file(path.join("./data/area/info", filename))
+    if (filename == null) continue;
+    
+    const file = Bun.file(path.join("./data/area/info", filename.toString()))
 
     if (!await file.exists()) continue;
 
